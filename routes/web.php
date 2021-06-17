@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('base.main');
+    return view('index');
+})->name('home');
+
+Route::group(['prefix'=>'product'], function() {
+    Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name('product.index');
 });

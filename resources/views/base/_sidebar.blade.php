@@ -1,8 +1,14 @@
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="{{ route('home') }}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('product.index') }}">
+        <i class="fas fa-fw fa-cube"></i>
+        <span>Produk</span></a>
 </li>
 
 <!-- Divider -->
@@ -10,7 +16,7 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-    Interface
+    Transaction
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
@@ -53,7 +59,7 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-    Addons
+    Setting
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
