@@ -10,4 +10,25 @@ class ProductController extends Controller
     {
         return view('product.index');
     }
+
+    public function show($id)
+    {
+        return view('product.show', compact('id'));
+    }
+
+    public function create()
+    {
+    }
+
+    public function store()
+    {
+    }
+
+    public function edit($id)
+    {
+    }
+
+    public function update($id)
+    {
+    }
 }

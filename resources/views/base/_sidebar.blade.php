@@ -1,11 +1,11 @@
 <!-- Nav Item - Dashboard -->
-<li class="nav-item active">
+<li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('home') }}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
 </li>
 
-<li class="nav-item">
+<li class="nav-item {{ request()->routeIs('product.*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('product.index') }}">
         <i class="fas fa-fw fa-cube"></i>
         <span>Produk</span></a>
