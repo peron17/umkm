@@ -20,10 +20,8 @@ class CreateProductTable extends Migration
             $table->integer('hpp')->nullable();
             $table->integer('selling_price');
             $table->string('photo')->nullable();
-            $table->integer('brand_id');
-            $table->foreign('brand_id')->references('id')->on('brand')->onUpdate('cascade');
-            $table->integer('category_id');
-            $table->foreign('category_id')->references('id')->on('category')->onUpdate('cascade');
+            $table->foreignId('brand_id')->references('id')->on('brand')->onUpdate('cascade');
+            $table->foreignId('category_id')->references('id')->on('category')->onUpdate('cascade');
             $table->timestamps();
         });
     }                                                                                                                                                                                                                                                                                                              

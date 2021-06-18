@@ -16,8 +16,7 @@ class CreateSalesTable extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->integer('product_id')->unsigned();
-            $table->foreign('product_id')->references('id')->on('product')->onUpdate('cascade');
+            $table->foreignId('product_id')->references('id')->on('product')->onUpdate('cascade');
             $table->integer('price')->unsigned();
             $table->integer('qty')->unsigned();
             $table->integer('discount')->unsigned();
