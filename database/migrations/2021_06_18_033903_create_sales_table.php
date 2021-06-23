@@ -17,10 +17,10 @@ class CreateSalesTable extends Migration
             $table->id();
             $table->date('date');
             $table->foreignId('product_id')->references('id')->on('product')->onUpdate('cascade');
-            $table->integer('price')->unsigned();
-            $table->integer('qty')->unsigned();
-            $table->integer('discount')->unsigned();
-            $table->integer('total_price')->unsigned();
+            $table->integer('price')->unsigned()->nullable();
+            $table->integer('qty')->unsigned()->nullable();
+            $table->integer('discount')->unsigned()->nullable();
+            $table->integer('total_price')->unsigned()->nullable();
             $table->timestamps();
         });
     }
