@@ -15,6 +15,7 @@ return [
 
     'paths' => [
         resource_path('views'),
+        '/bundle/web/resources/views',
     ],
 
     /*
