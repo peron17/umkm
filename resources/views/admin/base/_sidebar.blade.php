@@ -6,7 +6,7 @@
 </li>
 
 <li class="nav-item {{ request()->routeIs('product.*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('product.index') }}">
+    <a class="nav-link" href="#">
         <i class="fas fa-fw fa-cube"></i>
         <span>Produk</span></a>
 </li>
