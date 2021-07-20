@@ -23,15 +23,16 @@ class ProductFactory extends Factory
     public function definition()
     {
         $slugify = new Slugify();
-        $productName = $this->faker->word; 
-        $hpp = $this->faker->numberBetween(4000, 6000);
 
         return [
-            'name' => $productName,
-            'slug' => $slugify->slugify($productName),
-            'hpp' => $hpp,
-            'selling_price' => $hpp + $this->faker->numberBetween(4000, 6000),
-            'photo' => $this->faker->image()
+            'sku' => $this->faker->swiftBicNumber(),
+            'name' => $this->faker->unique()->words(3, true),
+            'slug' => function($att) use ($slugify) {
+                return $slugify->slugify($att['name']);
+            },
+            'photo' => $this->faker->imageUrl(),
+            'price' => $this->faker->numberBetween(50000, 1000000),
+            'discount' => $this->faker->numberBetween(0, 5)
         ];
     }
 }

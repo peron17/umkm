@@ -5,20 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Region extends Model
 {
     use HasFactory;
 
-    protected $table = 'category';
+    protected $table = 'region';
 
     protected $fillable = [
-        'name', 'slug'
+        'code', 'name'
     ];
+
+    public $incrementing = false;
 
     public $timestamps = false;
 
-    public function productCategory()
+    public function order()
     {
-        return $this->hasMany(ProductCategory::class);
+        return $this->hasMany(Order::class);
     }
 }

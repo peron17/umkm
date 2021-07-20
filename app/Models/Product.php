@@ -12,21 +12,11 @@ class Product extends Model
     protected $table = 'product';
 
     protected $fillable = [
-        'name', 'slug', 'hpp', 'selling_price', 'photo', 'brand_id', 'category_id'
+        'sku', 'name', 'slug', 'price', 'photo', 'discount'
     ];
 
-    public function brand()
+    public function productCategory()
     {
-        return $this->belongsTo(Brand::class);
-    }
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-
-    public function sales()
-    {
-        return $this->hasMany(Sales::class);
+        return $this->hasMany(ProductCategory::class);
     }
 }

@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Category;
-use Cocur\Slugify\Slugify;
+use App\Models\Member;
+use App\Models\Order;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CategoryFactory extends Factory
+class OrderFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Category::class;
+    protected $model = Order::class;
 
     /**
      * Define the model's default state.
@@ -22,13 +22,9 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-        $slugify = new Slugify();
-
         return [
-            'name' => $this->faker->unique()->word,
-            'slug' => function($att) use ($slugify) {
-                return $slugify->slugify($att['name']);
-            },
+            'order_number' => 'INV' . str_pad($this->faker->unique()->randomNumber, 7, '0', STR_PAD_LEFT),
+            'member_id' => Member::inRandomOrder()->first(),
         ];
     }
 }

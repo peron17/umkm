@@ -3,17 +3,18 @@
 namespace Database\Factories;
 
 use App\Models\Category;
-use Cocur\Slugify\Slugify;
+use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CategoryFactory extends Factory
+class ProductCategoryFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Category::class;
+    protected $model = ProductCategory::class;
 
     /**
      * Define the model's default state.
@@ -22,13 +23,9 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-        $slugify = new Slugify();
-
         return [
-            'name' => $this->faker->unique()->word,
-            'slug' => function($att) use ($slugify) {
-                return $slugify->slugify($att['name']);
-            },
+            'product_id' => Product::factory(),
+            'category_id' => Category::factory()
         ];
     }
 }
