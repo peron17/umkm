@@ -16,7 +16,7 @@ class CreateElementTable extends Migration
         Schema::create('element', function (Blueprint $table) {
             $table->id();
             $table->foreignId('element_position_id')->constrained('element_position');
-            $table->enum('type', ['text', 'file']);
+            $table->enum('type', ['text', 'file', 'url']);
             $table->string('value');
             $table->timestamps();
         });

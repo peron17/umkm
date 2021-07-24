@@ -2,26 +2,16 @@
 
 namespace Database\Seeders;
 
-use App\Models\Brand;
 use App\Models\Cart;
-use App\Models\Category;
+use App\Models\Element;
+use App\Models\ElementPosition;
 use App\Models\Member;
-use App\Models\Product;
 use App\Models\ProductCategory;
-use Cocur\Slugify\Slugify;
-use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
-    private $slugify;
-
-    public function __construct()
-    {
-        $this->slugify = new Slugify();
-    }
-
     /**
      * Seed the application's database.
      *
@@ -40,6 +30,9 @@ class DatabaseSeeder extends Seeder
         Member::factory(20)->create();
 
         Cart::factory(30)->create();
+
+        ElementPosition::factory(10)->create();
+        Element::factory(15)->create();
         // Cart::factory(30)->make()->each(function($cart){
         //     $cart->product()->associate(Product::inRandomOrder()->first());
         //     $cart->member()->associate(Member::inRandomOrder()->first());
